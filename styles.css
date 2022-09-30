@@ -1,3 +1,16 @@
+:root {
+    --sky050: #f0f9ff;
+    --sky100: #e0f2fe;
+    --sky200: #bae6fd;
+    --sky300: #7dd3fc;
+    --sky400: #38bdf8;
+    --sky500: #0ea5e9;
+    --sky600: #0284c7;
+    --sky700: #0369a1;
+    --sky800: #075985;
+    --sky900: #0c4a6e;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -17,7 +30,7 @@ body {
 }
 
 .header {
-  background-color: #f0f9ff;
+  background-color: var(--sky050);
   font-size: 50px;
   font-weight: bolder;
   padding: 25px;
@@ -33,8 +46,8 @@ body {
 }
 
 .login {
-  border: 3px solid #0284c7;
-  background-color: #f0f9ff;
+  border: 3px solid var(--sky600);
+  background-color: var(--sky050);
   color: #0284c7;
   padding: 8px;
   border-radius: 8px;
@@ -44,12 +57,12 @@ body {
 
 .login:hover {
   cursor: pointer;
-  background-color: #e0f2fe;
+  background-color: var(--sky100);
 }
 
 .login:active {
-  background-color: #0284c7;
-  border: 3px solid #f0f9ff;
+  background-color: var(--sky600);
+  border: 3px solid var(--sky050);
   color: #f0f9ff;
 }
 
@@ -71,7 +84,7 @@ body {
 
 .addBook:hover {
   cursor: pointer;
-  background-color: #e0f2fe;
+  background-color: var(--sky100);
 }
 
 .library-section {
@@ -108,9 +121,9 @@ body {
 
   height: 400px;
   width: 300px;
-  box-shadow: 0 0 16px 4px #0c4a6e;
+  box-shadow: 0 0 16px 4px var(--sky900);
   border-radius: 8px;
-  background-color: #f0f9ff;
+  background-color: var(--sky050);
 }
 
 .modal.active {
@@ -137,8 +150,8 @@ body {
 }
 
 .modal > form > input:focus {
-    border: 1px solid #0ea5e9;
-    box-shadow: 0 0 4px 2px #0ea5e9;
+    border: 1px solid var(--sky500);
+    box-shadow: 0 0 4px 2px var(--sky500);
 }
 
 .isRead {
@@ -166,18 +179,18 @@ body {
     border-radius: 8px;
     font-size: 20px;
     font-weight: 600;
-    background-color: #7dd3fc;
+    background-color: var(--sky300);
     border: none;
 }
 
 .modal > form > button:hover {
-    background-color: #0ea5e9;
+    background-color: var(--sky500);
     cursor: pointer;
 }
 
 .modal > form > button:active {
-    background-color: #f0f9ff;
-    border: 3px solid #0284c7;
+    background-color: var(--sky050);
+    border: 3px solid var(--sky600);
 }
 
 .overlay {
