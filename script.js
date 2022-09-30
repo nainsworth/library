@@ -1,3 +1,26 @@
+const modal = document.querySelector(".modal");
+const overlay = document.querySelector(".overlay");
+const addBook = document.querySelector("[data-addBook]");
+
+function openModal() {
+  modal.classList.add("active");
+  overlay.classList.add("active");
+}
+
+function closeModal() {
+  modal.classList.remove("active");
+  overlay.classList.remove("active");
+}
+
+// function keypress(e) {
+//     if (e.key === "Escape)") {
+//         closeModal();
+//     }
+// }
+
+addBook.addEventListener("click", openModal);
+// window.addEventListener("keydown", keypress);
+
 // let myLibrary = [];
 
 // // Constructor
@@ -23,4 +46,3 @@
 
 // addBook();
 // console.table(myLibrary);
-
