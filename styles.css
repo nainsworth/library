@@ -80,6 +80,7 @@ body {
   font-weight: bold;
   padding: 8px;
   border-radius: 8px;
+  outline: none;
 }
 
 .addBook:hover {
@@ -117,7 +118,7 @@ body {
   transform: translate(-50%, -50%) scale(0);
   z-index: 1;
 
-  transition: 1s ease-in-out;
+  transition: .25s ease-in-out;
 
   height: 400px;
   width: 300px;
@@ -199,6 +200,8 @@ body {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   display: none;
+
+  transition: .25s ease-in-out;
 }
 
 .overlay.active {
