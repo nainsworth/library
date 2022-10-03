@@ -12,14 +12,15 @@ function closeModal() {
   overlay.classList.remove("active");
 }
 
-// function keypress(e) {
-//     if (e.key === "Escape)") {
-//         closeModal();
-//     }
-// }
+function keypress(e) {
+  if (e.key == "Escape") {
+    closeModal();
+  }
+}
 
 addBook.addEventListener("click", openModal);
-// window.addEventListener("keydown", keypress);
+overlay.addEventListener("click", closeModal);
+window.addEventListener("keydown", keypress);
 
 // let myLibrary = [];
 
