@@ -40,12 +40,12 @@
     <div class="modal">
       <form action="#">
         <h2>Add a New Book</h2>
-        <input type="text" placeholder="Title" max="100" required />
-        <input type="text" placeholder="Author" max="100" required />
-        <input type="number" placeholder="Pages" max="10000" required />
+        <input type="text" placeholder="Title" max="100" data-title required />
+        <input type="text" placeholder="Author" max="100" data-author required />
+        <input type="number" placeholder="Pages" max="10000" data-pages required />
         <div class="isRead">
           <label for="isRead">Have you read it?</label>
-          <input class="checkbox" type="checkbox" name="isRead" id="isRead" />
+          <input class="checkbox" type="checkbox" name="isRead" id="isRead" data-isRead />
         </div>
         <button type="submit">Submit</button>
       </form>

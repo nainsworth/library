@@ -1,6 +1,22 @@
+let myLibrary = [];
+
+function Book() {
+
+}
+
+function addToLibrary() {
+
+}
+
+
+
 const modal = document.querySelector(".modal");
 const overlay = document.querySelector(".overlay");
 const addBook = document.querySelector("[data-addBook]");
+const addTitle = document.querySelector("[data-title]");
+const addAuthor = document.querySelector("[data-author]");
+const addPages = document.querySelector("[data-pages]");
+const addIsRead = document.querySelector("[data-isRead]");
 
 function openModal() {
   modal.classList.add("active");
@@ -22,7 +38,6 @@ addBook.addEventListener("click", openModal);
 overlay.addEventListener("click", closeModal);
 window.addEventListener("keydown", keypress);
 
-// let myLibrary = [];
 
 // // Constructor
 // function Book(title, author, pages, isRead) {
@@ -47,3 +62,19 @@ window.addEventListener("keydown", keypress);
 
 // addBook();
 // console.table(myLibrary);
+
+
+// // Local Storage
+
+// const saveLocal = () => {
+//   localStorage.setItem('library', JSON.stringify(library.books))
+// }
+
+// const restoreLocal = () => {
+//   const books = JSON.parse(localStorage.getItem('library'))
+//   if (books) {
+//     library.books = books.map((book) => JSONToBook(book))
+//   } else {
+//     library.books = []
+//   }
+// }
