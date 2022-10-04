@@ -91,7 +91,7 @@ function createBookCard(book) {
   author.textContent = book.author;
   pages.textContent = `${book.pages} pages`;
   remove.textContent = "Remove";
-
+  
   if (book.isRead === true) {
     isRead.classList.add("read");
     isRead.textContent = "Read";
@@ -106,6 +106,17 @@ function createBookCard(book) {
   card.appendChild(pages);
   card.appendChild(isRead);
   card.appendChild(remove);
+
+  
+  isRead.addEventListener("click", () => {
+    book.isRead = !book.isRead;
+    updateLibrary();
+  });
+
+  remove.addEventListener("click", () => {
+    myLibrary.splice(myLibrary.indexOf(book), 1);
+    updateLibrary();
+  })
 }
 
 // // Local Storage
