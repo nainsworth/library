@@ -30,6 +30,13 @@ const overlay = document.querySelector(".overlay");
 const addBook = document.querySelector("[data-addBook]");
 const submit = document.querySelector("[data-submit]");
 
+function clearInputs() {
+  addTitle.value = "";
+  addAuthor.value = "";
+  addPages.value = "";
+  addIsRead.checked = false;
+}
+
 function openModal() {
   modal.classList.add("active");
   overlay.classList.add("active");
@@ -38,6 +45,7 @@ function openModal() {
 function closeModal() {
   modal.classList.remove("active");
   overlay.classList.remove("active");
+  clearInputs();
 }
 
 function keypress(e) {
