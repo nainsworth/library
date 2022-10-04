@@ -56,6 +56,45 @@ submit.addEventListener("click", () => {
 overlay.addEventListener("click", closeModal);
 window.addEventListener("keydown", keypress);
 
+// ---------- User Interface -----------
+
+const library = document.querySelector("[data-library]");
+
+// ---------- Create Book Card -----------
+
+function createBookCard(book) {
+  const card = document.createElement("div");
+  const title = document.createElement("p");
+  const author = document.createElement("p");
+  const pages = document.createElement("p");
+  const isRead = document.createElement("button");
+  const remove = document.createElement("button");
+
+  card.classList.add("bookCard");
+
+  title.textContent = `"${book.title}"`;
+  author.textContent = book.author;
+  pages.textContent = `${book.title} pages`;
+  remove.textContent = "Remove";
+
+  if (book.isRead === true) {
+    isRead.classList.add("read");
+    isRead.textContent = "Read";
+  } else {
+    isRead.classList.add("notRead");
+    isRead.textContent = "Not Read";
+  }
+
+  library.appendChild(card);
+  card.appendChild(title);
+  card.appendChild(author);
+  card.appendChild(pages);
+  card.appendChild(isRead);
+  card.appendChild(remove);
+}
+
+
+
 // // Local Storage
 
 // const saveLocal = () => {
