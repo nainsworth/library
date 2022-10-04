@@ -100,9 +100,7 @@ body {
   background-color: var(--sky100);
 }
 
-
 .library-section {
-
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 36px;
@@ -155,7 +153,7 @@ body {
 }
 
 .bookCard > .notRead {
- background-color: #fd4b4b;
+  background-color: #fd4b4b;
 }
 
 /* ---------- Footer Section ---------- */
@@ -188,7 +186,7 @@ body {
   transform: translate(-50%, -50%) scale(0);
   z-index: 1;
 
-  transition: .25s ease-in-out;
+  transition: 0.25s ease-in-out;
 
   height: 400px;
   width: 300px;
@@ -271,10 +269,9 @@ body {
   background-color: rgba(0, 0, 0, 0.5);
   display: none;
 
-  transition: .25s ease-in-out;
+  transition: 0.25s ease-in-out;
 }
 
 .overlay.active {
   display: block;
 }
-

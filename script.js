@@ -59,7 +59,7 @@ function keypress(e) {
 const library = document.querySelector("[data-library]");
 
 function updateLibrary() {
-   library.innerText = "";
+  library.innerText = "";
   for (let book of myLibrary) createBookCard(book);
 }
 
@@ -67,7 +67,7 @@ function addBookToLibrary(e) {
   e.preventDefault();
   addToLibrary();
   updateLibrary();
-  closeModal()
+  closeModal();
 }
 
 addBook.addEventListener("click", openModal);
@@ -107,8 +107,6 @@ function createBookCard(book) {
   card.appendChild(isRead);
   card.appendChild(remove);
 }
-
-
 
 // // Local Storage
 

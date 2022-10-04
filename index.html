@@ -25,36 +25,21 @@
       <button class="addBook" data-addBook>+ Add Book</button>
 
       <div data-library class="library-section">
-
-
-
-
-
-
-
         <div class="bookCard">
           <p>"Harry Potter and the Philosopher's Stone"</p>
-          <p> J.K. Rowling</p>
+          <p>J.K. Rowling</p>
           <p>250 Pages</p>
           <button class="read">Read</button>
-          <button >Remove</button>
+          <button>Remove</button>
         </div>
-
-
-
-
-
-
 
         <div class="bookCard">
           <p>"Harry Potter and the Chamber of Secrets"</p>
-          <p> J.K. Rowling</p>
+          <p>J.K. Rowling</p>
           <p>209 Pages</p>
           <button class="notRead">Not Read</button>
           <button>Remove</button>
         </div>
-
-
       </div>
     </div>
     <div class="footer">
@@ -72,11 +57,29 @@
       <form action="#">
         <h2>Add a New Book</h2>
         <input type="text" placeholder="Title" max="100" data-title required />
-        <input type="text" placeholder="Author" max="100" data-author required />
-        <input type="number" placeholder="Pages" max="10000" data-pages required />
+        <input
+          type="text"
+          placeholder="Author"
+          max="100"
+          data-author
+          required
+        />
+        <input
+          type="number"
+          placeholder="Pages"
+          max="10000"
+          data-pages
+          required
+        />
         <div class="isRead">
           <label for="isRead">Have you read it?</label>
-          <input class="checkbox" type="checkbox" name="isRead" id="isRead" data-isRead />
+          <input
+            class="checkbox"
+            type="checkbox"
+            name="isRead"
+            id="isRead"
+            data-isRead
+          />
         </div>
         <button data-submit type="submit">Submit</button>
       </form>
