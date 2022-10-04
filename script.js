@@ -15,11 +15,11 @@ function Book(title, author, pages, isRead) {
 }
 
 function addToLibrary() {
-  let title = addTitle.value;
-  let author = addAuthor.value;
-  let pages = addPages.value;
-  let isRead = addIsRead.checked;
-  let newBook = new Book(title, author, pages, isRead);
+  const title = addTitle.value;
+  const author = addAuthor.value;
+  const pages = addPages.value;
+  const isRead = addIsRead.checked;
+  const newBook = new Book(title, author, pages, isRead);
   myLibrary.push(newBook);
 }
 
@@ -46,19 +46,26 @@ function keypress(e) {
   }
 }
 
-addBook.addEventListener("click", openModal);
-submit.addEventListener("click", () => {
-  addToLibrary();
-  console.log(myLibrary);
-  closeModal();
-});
-
-overlay.addEventListener("click", closeModal);
-window.addEventListener("keydown", keypress);
-
 // ---------- User Interface -----------
 
 const library = document.querySelector("[data-library]");
+
+function updateLibrary() {
+   library.innerText = "";
+  for (let book of myLibrary) createBookCard(book);
+}
+
+function addBookToLibrary(e) {
+  e.preventDefault();
+  addToLibrary();
+  updateLibrary();
+  closeModal()
+}
+
+addBook.addEventListener("click", openModal);
+submit.addEventListener("click", addBookToLibrary);
+overlay.addEventListener("click", closeModal);
+window.addEventListener("keydown", keypress);
 
 // ---------- Create Book Card -----------
 
@@ -74,7 +81,7 @@ function createBookCard(book) {
 
   title.textContent = `"${book.title}"`;
   author.textContent = book.author;
-  pages.textContent = `${book.title} pages`;
+  pages.textContent = `${book.pages} pages`;
   remove.textContent = "Remove";
 
   if (book.isRead === true) {
