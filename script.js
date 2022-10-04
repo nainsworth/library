@@ -1,5 +1,9 @@
 // ---------- Data -----------
 
+window.onload = function () {
+  restoreLocal();
+};
+
 const addTitle = document.querySelector("[data-title]");
 const addAuthor = document.querySelector("[data-author]");
 const addPages = document.querySelector("[data-pages]");
@@ -61,6 +65,7 @@ const library = document.querySelector("[data-library]");
 function updateLibrary() {
   library.innerText = "";
   for (let book of myLibrary) createBookCard(book);
+  saveLocal();
 }
 
 function addBookToLibrary(e) {
@@ -91,7 +96,7 @@ function createBookCard(book) {
   author.textContent = book.author;
   pages.textContent = `${book.pages} pages`;
   remove.textContent = "Remove";
-  
+
   if (book.isRead === true) {
     isRead.classList.add("read");
     isRead.textContent = "Read";
@@ -107,7 +112,6 @@ function createBookCard(book) {
   card.appendChild(isRead);
   card.appendChild(remove);
 
-  
   isRead.addEventListener("click", () => {
     book.isRead = !book.isRead;
     updateLibrary();
@@ -116,20 +120,21 @@ function createBookCard(book) {
   remove.addEventListener("click", () => {
     myLibrary.splice(myLibrary.indexOf(book), 1);
     updateLibrary();
-  })
+  });
 }
 
-// // Local Storage
+// ---------- Local Storage -----------
 
-// const saveLocal = () => {
-//   localStorage.setItem('library', JSON.stringify(library.books))
-// }
+function saveLocal() {
+  localStorage.setItem("savedLibrary", JSON.stringify(myLibrary));
+}
 
-// const restoreLocal = () => {
-//   const books = JSON.parse(localStorage.getItem('library'))
-//   if (books) {
-//     library.books = books.map((book) => JSONToBook(book))
-//   } else {
-//     library.books = []
-//   }
-// }
+function restoreLocal() {
+  const books = JSON.parse(localStorage.getItem("savedLibrary"));
+  if (!localStorage.savedLibrary) {
+    updateLibrary();
+  } else {
+    myLibrary = books;
+    updateLibrary();
+  }
+}
