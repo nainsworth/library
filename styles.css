@@ -73,7 +73,7 @@ body {
 }
 
 .addBook {
-  margin: 24px;
+  margin: 24px auto;
   border: none;
   background-color: white;
   font-size: 32px;
@@ -81,6 +81,7 @@ body {
   padding: 8px;
   border-radius: 8px;
   outline: none;
+  width: 250px;
 }
 
 .addBook:hover {
