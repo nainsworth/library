@@ -122,22 +122,17 @@ body {
 }
 
 .bookCard > button {
-  width: 100px;
-  height: 30px;
+  width: 120px;
+  height: 35px;
   background-color: rgb(237, 237, 237);
   border: 1px solid black;
   border-radius: 4px;
   font-size: 16px;
 }
 
-.bookCard > img {
-  width: 100px;
-  height: 30px;
-  padding: 4px;
-  background-color: rgb(237, 237, 237);
-  border: 1px solid black;
-  border-radius: 4px;
-}
+
+
+
 
 .footer {
   margin-top: auto;
