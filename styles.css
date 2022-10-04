@@ -1,3 +1,10 @@
+@media screen and (min-width: 1200px) {
+  .main-content {
+    width: 1200px;
+    margin: auto;
+  }
+}
+
 :root {
   --sky050: #f0f9ff;
   --sky100: #e0f2fe;
@@ -28,6 +35,8 @@ body {
   flex-direction: column;
   min-height: 100%;
 }
+
+/* ---------- Header Section ---------- */
 
 .header {
   background-color: var(--sky050);
@@ -65,6 +74,8 @@ body {
   border: 3px solid var(--sky050);
   color: #f0f9ff;
 }
+
+/* ---------- Content Section ---------- */
 
 .main-content {
   display: flex;
@@ -130,9 +141,25 @@ body {
   font-size: 16px;
 }
 
+.bookCard > button:hover {
+  cursor: pointer;
+  filter: brightness(90%);
+}
 
+.bookCard > button:active {
+  cursor: pointer;
+  filter: brightness(75%);
+}
 
+.bookCard > .read {
+  background-color: #4ade80;
+}
 
+.bookCard > .notRead {
+ background-color: #fd4b4b;
+}
+
+/* ---------- Footer Section ---------- */
 
 .footer {
   margin-top: auto;
@@ -152,6 +179,8 @@ body {
 .footer > a > img {
   width: 40px;
 }
+
+/* ---------- Modal Section ---------- */
 
 .modal {
   position: absolute;
@@ -250,9 +279,3 @@ body {
   display: block;
 }
 
-@media screen and (min-width: 1200px) {
-  .main-content {
-    width: 1200px;
-    margin: auto;
-  }
-}

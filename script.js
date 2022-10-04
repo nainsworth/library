@@ -1,22 +1,34 @@
-let myLibrary = [];
+// ---------- Data -----------
 
-function Book() {
-
-}
-
-function addToLibrary() {
-
-}
-
-
-
-const modal = document.querySelector(".modal");
-const overlay = document.querySelector(".overlay");
-const addBook = document.querySelector("[data-addBook]");
 const addTitle = document.querySelector("[data-title]");
 const addAuthor = document.querySelector("[data-author]");
 const addPages = document.querySelector("[data-pages]");
 const addIsRead = document.querySelector("[data-isRead]");
+
+let myLibrary = [];
+
+function Book(title, author, pages, isRead) {
+  this.title = title;
+  this.author = author;
+  this.pages = pages;
+  this.isRead = isRead;
+}
+
+function addToLibrary() {
+  let title = addTitle.value;
+  let author = addAuthor.value;
+  let pages = addPages.value;
+  let isRead = addIsRead.checked;
+  let newBook = new Book(title, author, pages, isRead);
+  myLibrary.push(newBook);
+}
+
+// ---------- Modal -----------
+
+const modal = document.querySelector(".modal");
+const overlay = document.querySelector(".overlay");
+const addBook = document.querySelector("[data-addBook]");
+const submit = document.querySelector("[data-submit]");
 
 function openModal() {
   modal.classList.add("active");
@@ -35,34 +47,14 @@ function keypress(e) {
 }
 
 addBook.addEventListener("click", openModal);
+submit.addEventListener("click", () => {
+  addToLibrary();
+  console.log(myLibrary);
+  closeModal();
+});
+
 overlay.addEventListener("click", closeModal);
 window.addEventListener("keydown", keypress);
-
-
-// // Constructor
-// function Book(title, author, pages, isRead) {
-//   this.title = title;
-//   this.author = author;
-//   this.pages = pages;
-//   isRead() {
-//     if () {
-//       this.isRead = true;
-//     } else {
-//     return this.isRead = false;
-//     }
-//   }
-
-// }
-
-// function addBook() {
-//   const newBook = new Book("Harry Potter", "Rowling", 200, false);
-
-//   myLibrary.push(newBook);
-// }
-
-// addBook();
-// console.table(myLibrary);
-
 
 // // Local Storage
 
