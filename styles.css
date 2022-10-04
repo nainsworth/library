@@ -16,7 +16,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: Poppins, helvetica, sans-serif;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 html {
@@ -70,7 +70,6 @@ body {
   display: flex;
   flex-direction: column;
   flex: 1;
- 
 }
 
 .addBook {
@@ -98,7 +97,7 @@ body {
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-template-rows: repeat(auto-fill, 300px);
   gap: 36px;
-  margin: 0 24px;
+  margin: 0 24px 20px;
 }
 
 .bookCard {
