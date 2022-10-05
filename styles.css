@@ -136,6 +136,7 @@ body {
   border: 1px solid black;
   border-radius: 4px;
   font-size: 16px;
+  color: black;
 }
 
 .bookCard > button:hover {
@@ -250,6 +251,7 @@ body {
   font-weight: 600;
   background-color: var(--sky300);
   border: none;
+  color: black;
 }
 
 .modal > form > button:hover {
