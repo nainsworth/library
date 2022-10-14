@@ -1,58 +1,65 @@
 // ---------- Data -----------
 
-window.onload = function () {
-  restoreLocal();
-};
+class Book {
+  constructor(title, author, pages, isRead) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.isRead = isRead;
+  }
+}
+
+class Library {
+  constructor() {
+    this.myLibrary = [];
+  }
+
+  addToLibrary(newBook) {
+    this.myLibrary.push(newBook);
+  }
+}
+
+const library = new Library();
+
+// ---------- Modal -----------
 
 const addTitle = document.querySelector("[data-title]");
 const addAuthor = document.querySelector("[data-author]");
 const addPages = document.querySelector("[data-pages]");
 const addIsRead = document.querySelector("[data-isRead]");
 
-let myLibrary = [];
-
-function Book(title, author, pages, isRead) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.isRead = isRead;
-}
-
-function addToLibrary() {
-  const title = addTitle.value;
-  const author = addAuthor.value;
-  const pages = addPages.value;
-  const isRead = addIsRead.checked;
-  const newBook = new Book(title, author, pages, isRead);
-  myLibrary.push(newBook);
-}
-
-// ---------- Modal -----------
-
 const modal = document.querySelector(".modal");
 const overlay = document.querySelector(".overlay");
 const addBook = document.querySelector("[data-addBook]");
 const submit = document.querySelector("[data-submit]");
 
-function clearInputs() {
+const modalInput = () => {
+  const title = addTitle.value;
+  const author = addAuthor.value;
+  const pages = addPages.value;
+  const isRead = addIsRead.checked;
+  return new Book(title, author, pages, isRead);
+};
+
+const clearInputs = () => {
   addTitle.value = "";
   addAuthor.value = "";
   addPages.value = "";
   addIsRead.checked = false;
-}
+};
 
-function openModal() {
+const openModal = () => {
   modal.classList.add("active");
   overlay.classList.add("active");
 }
 
-function closeModal() {
+const closeModal = () => {
   modal.classList.remove("active");
   overlay.classList.remove("active");
   clearInputs();
 }
 
-function keypress(e) {
+const keypress = (e) => {
   if (e.key == "Escape") {
     closeModal();
   }
@@ -60,20 +67,21 @@ function keypress(e) {
 
 // ---------- User Interface -----------
 
-const library = document.querySelector("[data-library]");
+const libraryList = document.querySelector("[data-library]");
 
-function updateLibrary() {
-  library.innerText = "";
-  for (let book of myLibrary) createBookCard(book);
+const updateLibrary = () => {
+  libraryList.innerText = "";
+  for (let book of library.myLibrary) createBookCard(book);
   saveLocal();
 }
 
-function addBookToLibrary(e) {
+const addBookToLibrary = (e) => {
+  const newBook = modalInput();
   e.preventDefault();
-  addToLibrary();
+  library.addToLibrary(newBook);
   updateLibrary();
   closeModal();
-}
+};
 
 addBook.addEventListener("click", openModal);
 submit.addEventListener("click", addBookToLibrary);
@@ -82,7 +90,7 @@ window.addEventListener("keydown", keypress);
 
 // ---------- Create Book Card -----------
 
-function createBookCard(book) {
+const createBookCard = (book) => {
   const card = document.createElement("div");
   const title = document.createElement("p");
   const author = document.createElement("p");
@@ -105,7 +113,7 @@ function createBookCard(book) {
     isRead.textContent = "Not Read";
   }
 
-  library.appendChild(card);
+  libraryList.appendChild(card);
   card.appendChild(title);
   card.appendChild(author);
   card.appendChild(pages);
@@ -118,23 +126,25 @@ function createBookCard(book) {
   });
 
   remove.addEventListener("click", () => {
-    myLibrary.splice(myLibrary.indexOf(book), 1);
+    library.myLibrary.splice(library.myLibrary.indexOf(book), 1);
     updateLibrary();
   });
 }
 
 // ---------- Local Storage -----------
 
-function saveLocal() {
-  localStorage.setItem("savedLibrary", JSON.stringify(myLibrary));
+const saveLocal = () => {
+  localStorage.setItem("savedLibrary", JSON.stringify(library.myLibrary));
 }
 
-function restoreLocal() {
+const restoreLocal = () => {
   const books = JSON.parse(localStorage.getItem("savedLibrary"));
   if (!localStorage.savedLibrary) {
     updateLibrary();
   } else {
-    myLibrary = books;
+    library.myLibrary = books;
     updateLibrary();
   }
 }
+
+restoreLocal();
